@@ -44,7 +44,7 @@ async def youtube_dl_call_back(bot, update):
             cache_time=0
         )
         return False, None
-    user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id))
+    user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id), str(time.time()))
     # create download directory, if not exist
     if not os.path.isdir(user_working_dir):
         await bot.delete_messages(
@@ -105,7 +105,8 @@ async def youtube_dl_call_back(bot, update):
     #
     tmp_directory_for_each_user = os.path.join(
         DOWNLOAD_LOCATION,
-        str(update.from_user.id)
+        str(update.from_user.id),
+        str(time.time())
     )
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
