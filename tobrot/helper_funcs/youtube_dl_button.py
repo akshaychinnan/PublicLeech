@@ -33,6 +33,7 @@ async def youtube_dl_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
     url, tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
+    url_folder = url.replace("watch?v=", "").replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("https", "").replace("www", "").replace("youtube", "").replace("com", "").replace("com", "")
     LOGGER.info("========================== URL URL URL URL URL URL URL URL URL URL URL ")
     LOGGER.info(url)
     LOGGER.info("========================== URL URL URL URL URL URL URL URL URL URL URL ")
@@ -47,7 +48,7 @@ async def youtube_dl_call_back(bot, update):
             cache_time=0
         )
         return False, None
-    user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id))
+    user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id),url_folder)
     # create download directory, if not exist
     if not os.path.isdir(user_working_dir):
         await bot.delete_messages(
@@ -82,7 +83,7 @@ async def youtube_dl_call_back(bot, update):
     #
     youtube_dl_url = response_json.get("webpage_url")
     LOGGER.info(youtube_dl_url)
-    youtube_dl_url_folder = youtube_dl_url.replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("httpswwwyoutubecom", "")    #
+    youtube_dl_url_folder = youtube_dl_url.replace("watch?v=", "").replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("https", "").replace("www", "").replace("youtube", "").replace("com", "").replace("com", "") #
     LOGGER.info(youtube_dl_url_folder)
     custom_file_name = "%(title)s.%(ext)s"
     # https://superuser.com/a/994060
