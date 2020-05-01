@@ -79,8 +79,7 @@ async def youtube_dl_call_back(bot, update):
     #
     youtube_dl_url = response_json.get("webpage_url")
     LOGGER.info(youtube_dl_url)
-    youtube_dl_url_folder = youtube_dl_url.replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "")
-    #
+    youtube_dl_url_folder = .replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("httpswwwyoutubecom", "")    #
     custom_file_name = "%(title)s.%(ext)s"
     # https://superuser.com/a/994060
     LOGGER.info(custom_file_name)
