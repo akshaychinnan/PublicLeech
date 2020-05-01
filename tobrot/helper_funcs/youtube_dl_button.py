@@ -79,6 +79,7 @@ async def youtube_dl_call_back(bot, update):
     #
     youtube_dl_url = response_json.get("webpage_url")
     LOGGER.info(youtube_dl_url)
+    youtube_dl_url_folder = youtube_dl_url.replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "")
     #
     custom_file_name = "%(title)s.%(ext)s"
     # https://superuser.com/a/994060
@@ -106,7 +107,7 @@ async def youtube_dl_call_back(bot, update):
     tmp_directory_for_each_user = os.path.join(
         DOWNLOAD_LOCATION,
         str(update.from_user.id),
-        str(time.time())
+        youtube_dl_url_folder
     )
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
