@@ -89,8 +89,8 @@ async def extract_youtube_dl_formats(url, user_working_dir):
                     if "filesize" in formats:
                         approx_file_size = humanbytes(formats["filesize"])
                     dipslay_str_uon = " " + format_string + " (" + format_ext.upper() + ") " + approx_file_size + " "
-                    cb_string_video = "{}|{}|{}".format(
-                        "video", format_id, format_ext)
+                    cb_string_video = "{}|{}|{}|{}".format(
+                        url,"video", format_id, format_ext)
                     ikeyboard = []
                     if "drive.google.com" in url:
                         if format_id == "source":
@@ -120,9 +120,9 @@ async def extract_youtube_dl_formats(url, user_working_dir):
                             ]
                     inline_keyboard.append(ikeyboard)
                 if duration is not None:
-                    cb_string_64 = "{}|{}|{}".format("audio", "64k", "mp3")
-                    cb_string_128 = "{}|{}|{}".format("audio", "128k", "mp3")
-                    cb_string = "{}|{}|{}".format("audio", "320k", "mp3")
+                    cb_string_64 = "{}|{}|{}|{}".format(url,"audio", "64k", "mp3")
+                    cb_string_128 = "{}|{}|{}|{}".format(url,"audio", "128k", "mp3")
+                    cb_string = "{}|{}|{}|{}".format(url,"audio", "320k", "mp3")
                     inline_keyboard.append([
                         pyrogram.InlineKeyboardButton(
                             "MP3 " + "(" + "64 kbps" + ")", callback_data=cb_string_64.encode("UTF-8")),
@@ -136,8 +136,8 @@ async def extract_youtube_dl_formats(url, user_working_dir):
             else:
                 format_id = current_r_json["format_id"]
                 format_ext = current_r_json["ext"]
-                cb_string_video = "{}|{}|{}".format(
-                    "video", format_id, format_ext)
+                cb_string_video = "{}|{}|{}|{}".format(
+                    url,"video", format_id, format_ext)
                 inline_keyboard.append([
                     pyrogram.InlineKeyboardButton(
                         "SVideo",
