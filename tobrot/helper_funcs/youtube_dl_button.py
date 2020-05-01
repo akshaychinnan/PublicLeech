@@ -33,6 +33,9 @@ async def youtube_dl_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
     url, tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
+    LOGGER.info("========================== URL URL URL URL URL URL URL URL URL URL URL ")
+    LOGGER.info(url)
+    LOGGER.info("========================== URL URL URL URL URL URL URL URL URL URL URL ")
     #
     current_user_id = update.message.reply_to_message.from_user.id
     current_touched_user_id = update.from_user.id
