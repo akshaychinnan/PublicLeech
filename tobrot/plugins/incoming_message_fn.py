@@ -191,7 +191,7 @@ async def incoming_youtube_dl_f(client, message):
     # extract link from message
     dl_url, cf_name = extract_link(message.reply_to_message)
     LOGGER.info("===============START YTDL")
-    dl_url_folder = dl_url..replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("httpswwwyoutubecom", "")
+    dl_url_folder = dl_url.replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("httpswwwyoutubecom", "")
     LOGGER.info(dl_url)
     LOGGER.info(dl_url_folder)
     LOGGER.info(cf_name)
