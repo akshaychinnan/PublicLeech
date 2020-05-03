@@ -90,7 +90,7 @@ async def upload_to_tg(
             await i_m_s_g.edit_text(
                 f"Detected File Size: {d_f_s} 😡\n"
                 f"**{ba_se_file_name}**\n"
-                "Splitted into **{number_of_files} files**.\n"
+                f"Splitted into **{number_of_files} files**.\n"
                 "Trying to upload to Telegram, now ..."
             )
             akcpart = 1
@@ -103,7 +103,7 @@ async def upload_to_tg(
                     dict_contatining_uploaded_files
                 )
                 await i_m_s_g.edit_text(
-                f"Uploaded part {akcpart}/{d_f_s} ♾️\n"
+                f"Uploaded part **{akcpart}/{d_f_s}** ♾️\n"
                 )
                 akcpart = akcpart + 1
             await i_m_s_g.edit_text(
