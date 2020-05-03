@@ -36,7 +36,7 @@ async def split_large_files(input_file):
         os.makedirs(new_working_directory)
     LOGGER.info("=============IN SPLIT new_working_directory")
     LOGGER.info(new_working_directory)
-    if 0
+    if 0:
     #if input_file.upper().endswith(("MKV", "MP4", "WEBM", "MP3", "M4A", "FLAC", "WAV")):
     # if False:
         # handle video / audio files here
