@@ -102,12 +102,20 @@ async def upload_to_tg(
                     from_user,
                     dict_contatining_uploaded_files
                 )
+                upprog = ""
+                dwnprog = ""
+                for aki in range(akcpart):
+                    upprog += "🔴"
+                for aki in range(number_of_files-akcpart):
+                    dwnprog += "⭕"
+                prog = upprog+dwnprog
                 await i_m_s_g.edit_text(
-                f"Uploaded part **{akcpart}/{d_f_s}** ♾️\n"
+                f"Uploaded part **[ {akcpart}/{number_of_files} ]** 📤\n"
+                f"{prog}"
                 )
                 akcpart = akcpart + 1
             await i_m_s_g.edit_text(
-                "All parts are uploaded ✔️\n"
+                "All parts are uploaded ✅\n"
             )
         else:
             sent_message = await upload_single_file(
