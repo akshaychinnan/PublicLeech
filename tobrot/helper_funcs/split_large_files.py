@@ -88,7 +88,7 @@ async def split_large_files(input_file):
             "rar",
             "a",
             "-v1024m",
-            "-m0",
+            "-m5",
             o_d_t,
             input_file
         ]
