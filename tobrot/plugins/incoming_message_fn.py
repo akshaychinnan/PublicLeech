@@ -100,10 +100,10 @@ async def incoming_statuz_message_f(client, message):
             else:
                 await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             #await msg_statuz.delete()
-                LOGGER.info("=======================")
-                LOGGER.info(msg_statuz)
-                LOGGER.info(msg)
-                LOGGER.info("=======================")
+                #LOGGER.info("=======================")
+                #LOGGER.info(msg_statuz)
+                #LOGGER.info(msg)
+                #LOGGER.info("=======================")
                 await msg_statuz.edit(msg)
             
             prev_msg = msg
@@ -194,7 +194,7 @@ async def incoming_youtube_dl_f(client, message):
     dl_url_folder = dl_url.replace("watch?v=", "").replace(";", "").replace("-", "").replace(".", "").replace("+", "").replace("=", "").replace("\\", "").replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace('"', "").replace("<", "").replace(">","").replace("|", "").replace("https", "").replace("www", "").replace("youtube", "").replace("com", "").replace("com", "")
     LOGGER.info(dl_url)
     LOGGER.info(dl_url_folder)
-    LOGGER.info(cf_name)
+    #LOGGER.info(cf_name)
     if dl_url is not None:
         await i_m_sefg.edit_text("extracting links")
         current_user_id = message.from_user.id
