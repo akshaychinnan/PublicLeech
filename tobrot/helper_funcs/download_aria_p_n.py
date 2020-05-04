@@ -242,7 +242,10 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             await event.edit(f"File Downloaded Successfully: `{file.name}`")
             return True
     except Exception as e:
+        LOGGER.info("======================================")
+        LOGGER.info("EXCEPTION HERE")
         LOGGER.info(str(e))
+        LOGGER.info("======================================")
         if " not found" in str(e) or "'file'" in str(e):
             await event.edit("Download Canceled :\n`{}`".format(file.name))
             return False
