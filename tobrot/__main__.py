@@ -42,9 +42,9 @@ from tobrot.plugins.custom_thumbnail import (
 
 if __name__ == "__main__" :
     
-    LOGGER.info("===== sys.getrecursionlimit(1)\t:\t" + sys.getrecursionlimit())
+    LOGGER.info("===== sys.getrecursionlimit(1)\t:\t" + str(sys.getrecursionlimit()))
     sys.setrecursionlimit(3000000)
-    LOGGER.info("===== sys.getrecursionlimit(2)\t:\t" + sys.getrecursionlimit())
+    LOGGER.info("===== sys.getrecursionlimit(2)\t:\t" + str(sys.getrecursionlimit()))
     
     # create download directory, if not exist
     if not os.path.isdir(DOWNLOAD_LOCATION):
