@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
+# (c) Akshay C
 
 # the logging things
 import logging
@@ -29,7 +29,7 @@ async def create_archive(input_directory):
         file_genertor_command = [
             "rar",
             "a",
-            "-m0",
+            "-m9",
             compressed_file_name,
             f"{input_directory}"
         ]
