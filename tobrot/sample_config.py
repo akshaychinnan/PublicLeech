@@ -10,7 +10,8 @@ class Config(object):
     # to store the channel ID who are authorized to use the bot
     AUTH_CHANNEL = int(os.environ.get("AUTH_CHANNEL", -100))
     # the download location, where the HTTP Server runs
-    DOWNLOAD_LOCATION = "./DOWNLOADS"
+    #DOWNLOAD_LOCATION = "./DOWNLOADS"
+    DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION")
     # Telegram maximum file upload size
     MAX_FILE_SIZE = 50000000
     TG_MAX_FILE_SIZE = 1572864000
