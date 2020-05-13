@@ -171,7 +171,7 @@ async def call_apropriate_function(
     )
     LOGGER.info(final_response)
     message_to_send = ""
-    message_to_send += os.path.abspath(to_upload_file) 
+    #message_to_send += os.path.abspath(to_upload_file) 
     for key_f_res_se in final_response:
         local_file_name = key_f_res_se
         message_id = final_response[key_f_res_se]
