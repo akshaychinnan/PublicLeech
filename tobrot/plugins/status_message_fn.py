@@ -14,6 +14,7 @@ LOGGER = logging.getLogger(__name__)
 import asyncio
 import os
 import time
+import psutil
 
 from tobrot import (
     MAX_MESSAGE_LENGTH
@@ -67,8 +68,17 @@ async def status_message_f(client, message):
             msg += " | "
             msg += "\n\n"
         LOGGER.info(msg)
+        obj_Disk = psutil.disk_usage("/app/")
+
+
+        ptotal = (obj_Disk.total  / (1024.0 ** 3))
+        pused = (obj_Disk.used / (1024.0 ** 3))
+        pfree = (obj_Disk.free / (1024.0 ** 3))
+            
         if msg == "":
             msg = "🤷‍♂️ No Active, Queued or Paused TORRENTs"
+        msg += f"\nTotal: {ptotal}GiB | Used: {pused}GiB | Free: {pfree}GiB" 
+          
         await message.reply_text(msg, quote=True)
 
 
