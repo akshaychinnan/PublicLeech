@@ -23,6 +23,7 @@ from tobrot import (
 import aria2p
 import time
 import asyncio
+import shutil
 from tobrot.helper_funcs.extract_link_from_message import extract_link
 from tobrot.helper_funcs.admin_check import AdminCheck
 from tobrot.helper_funcs.download_aria_p_n import call_apropriate_function, aria_start
@@ -84,8 +85,16 @@ async def incoming_statuz_message_f(client, message):
                 msg += "\n\n"
             LOGGER.info(msg)
             
+
+            total, used, free = shutil.disk_usage("/")
+
+            ptotal = (total // (2**30))
+            pused = (used // (2**30))
+            pfree = (free // (2**30))
             if msg == "":
                 msg = "🤷‍♂️ No Active, Queued or Paused TORRENTs"
+            msg += f"Total: {ptotal}GiB | Used: {pused}GiB | Free: {pfree}GiB" 
+          
             
             if prev_msg == msg:
                 await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
