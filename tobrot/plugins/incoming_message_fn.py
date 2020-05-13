@@ -93,7 +93,7 @@ async def incoming_statuz_message_f(client, message):
             pfree = (free // (2**30))
             if msg == "":
                 msg = "🤷‍♂️ No Active, Queued or Paused TORRENTs"
-            msg += f"Total: {ptotal}GiB | Used: {pused}GiB | Free: {pfree}GiB" 
+            msg += f"\nTotal: {ptotal}GiB | Used: {pused}GiB | Free: {pfree}GiB" 
           
             
             if prev_msg == msg:
