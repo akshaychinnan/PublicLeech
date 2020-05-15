@@ -84,7 +84,7 @@ async def incoming_statuz_message_f(client, message):
                 msg += f"\n<code>/cancel {current_gid}</code>"
                 msg += " | "
                 msg += "\n\n"
-            LOGGER.info(msg)
+            #LOGGER.info(msg)
             
 
             #total, used, free = shutil.disk_usage("/")
@@ -102,7 +102,7 @@ async def incoming_statuz_message_f(client, message):
             if prev_msg == msg:
                 await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
                 msg += "\n**Over & Out** 🔊"
-                LOGGER.info(msg)
+                #LOGGER.info(msg)
                 await msg_statuz.edit(msg)
                 break;
             
@@ -141,17 +141,18 @@ async def incoming_message_f(client, message):
         if message.command[1] == "archive":
             is_zip = True
     # get link from the incoming message
-    LOGGER.info("is_zip===============================")
-    LOGGER.info(is_zip)
+    #LOGGER.info("is_zip===============================")
+    #LOGGER.info(is_zip)
     dl_url, cf_name = extract_link(message.reply_to_message)
-    LOGGER.info(dl_url)
-    LOGGER.info(cf_name)
+    #LOGGER.info(dl_url)
+    #LOGGER.info(cf_name)
     if dl_url is not None:
         akcm = dl_url.split('\n')
         for akc_url in akcm:
             await i_m_sefg.edit_text("extracting links")
             # start the aria2c daemon
             aria_i_p = await aria_start()
+            LOGGER.info("   ")
             LOGGER.info(aria_i_p)
             current_user_id = message.from_user.id
             # create an unique directory
