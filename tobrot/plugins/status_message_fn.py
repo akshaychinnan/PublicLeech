@@ -67,7 +67,7 @@ async def status_message_f(client, message):
             msg += f"<code>/cancel {current_gid}</code>"
             msg += " | "
             msg += "\n\n"
-        LOGGER.info(msg)
+        #LOGGER.info(msg)
         obj_Disk = psutil.disk_usage("/app/")
 
 
