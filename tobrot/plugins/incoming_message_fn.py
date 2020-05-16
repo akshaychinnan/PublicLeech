@@ -151,6 +151,7 @@ async def incoming_message_f(client, message):
     #LOGGER.info(cf_name)
     if dl_url is not None:
         akcm = dl_url.split('\n')
+        akcm = list(filter(lambda x: x != "", akcm)) 
         for akc_url in akcm:
             await i_m_sefg.edit_text("extracting links")
             # start the aria2c daemon
